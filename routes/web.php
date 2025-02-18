@@ -5,6 +5,8 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,3 +106,9 @@ Route::get('/user/{name?}', function ($name='John') {
 
 // Route::view('/welcome', 'welcome');
 // Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
+
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
